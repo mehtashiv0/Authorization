@@ -27,6 +27,16 @@ const userSchema = new mongoose.Schema(
     resetPasswordExpiresAt: Date,
     verificationToken: String,
     verficationTokenExpiration: Date,
+    encryptionKey: {
+      type: String,
+      default: null,
+    },
+    userType: {
+      type: String,
+      enum: ["free", "paid"],
+      default: "free",
+    },
+    isPaid: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

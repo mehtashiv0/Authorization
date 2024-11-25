@@ -1,4 +1,0 @@
-node_modules/
-
-# Ignore node_modules and package files inside the frontend folder
-/frontend/node_modules/

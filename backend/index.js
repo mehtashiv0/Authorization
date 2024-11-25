@@ -4,7 +4,6 @@ import cors from "cors"; // Import the CORS package
 import { connectDB } from "./dbHelpers/db.connect.js";
 
 dotenv.config();
-console.log("JWT Secret:", process.env.JWT_SECRET);
 
 const app = express();
 
@@ -17,9 +16,12 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true })); // This w
 const PORT = process.env.PORT || 5000;
 
 import authRoutes from "./routes/auth.routes.js";
+import encyptRoutes from "./routes/encryption.js";
+
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/auth", encyptRoutes);
 
 app.listen(PORT, () => {
   connectDB(); // Connect to MongoDB after server starts
